@@ -23,3 +23,44 @@ btn.addEventListener('click', () => {
     visitas = 0;
     contadorVisitas.textContent = visitas
 })
+
+//solución DATA
+// localStorage.getItem
+// localStorage.setItem
+
+const btnReestablecer = document.getElementById("btnReestablecer")
+const contadorVisitas = document.getElementById("contadorVisitas")
+
+// Capturar el botón de restablecer "btnReestablecer" y el lugar donde va el número del contador "contadorVisitas"
+// Acceder al dato que está en el localStorage
+// Cambiar el dato del local storage
+// poner el dato en la pantalla
+// FUNCIONE TODO
+
+
+
+const getCount = parseInt(localStorage.getItem("visitCount")) || 0 
+const setCount = () => localStorage.setItem("visitCount", countVisit) // declaración de función y no se autoejecuta
+
+let countVisit = getCount
+
+const updateVisit = () => {
+  setCount() // Aquí es donde se ejecuta (invoca)
+  contadorVisitas.textContent = countVisit
+}
+
+countVisit++
+updateVisit() // Este es el inicio de mi ejecución total
+
+btnReestablecer.addEventListener("click", () => {
+  localStorage.setItem("visitCount", 0)
+  contadorVisitas.textContent = localStorage.getItem("visitCount")
+})
+
+
+// Obtenemos el dato del localStore 0
+// updateVisit() -> ejecutamos la función
+// setCount -> cambia el valor del localStorage("visitCount")
+// garda ese valor dentro del localstorage("visitCount") -> donde antes valía 0 ahora vale 1
+// RECARGO
+// Obtenemos el dato del localStore 1
